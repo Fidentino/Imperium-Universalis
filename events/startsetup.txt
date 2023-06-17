@@ -31,23 +31,7 @@ country_event = {
 		set_global_flag = popgrowth_vanilla	
 		country_event = { id = startup.2 }	# adds popgrowth base values
 		
-		every_country = {
-			# Institutions
-			if = {
-				limit = { NOT = { has_institution = writing_system } }
-				add_country_modifier = {
-					name = illiterate_country_modifier
-					duration = -1
-				}
-			}
-			if = {
-				limit = { NOT = { has_institution = iron_age } }
-				add_country_modifier = {
-					name = bronze_age_modifier
-					duration = -1
-				}
-			}
-			
+		every_country = {			
 			# Estates
 			if = {
 				limit = {

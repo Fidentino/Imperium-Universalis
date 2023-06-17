@@ -2039,22 +2039,7 @@ on_force_conversion = {
 	}
 }
 
-on_institution_embracement = {
-	if = {
-		limit = {
-			has_institution = writing_system
-			has_country_modifier = illiterate_country_modifier
-		}
-		remove_country_modifier = illiterate_country_modifier
-	}
-	if = {
-		limit = {
-			has_institution = iron_age
-			has_country_modifier = bronze_age_modifier
-		}
-		remove_country_modifier = bronze_age_modifier
-	}
-}
+on_institution_embracement = {}
 
 on_national_focus_change = {}
 
