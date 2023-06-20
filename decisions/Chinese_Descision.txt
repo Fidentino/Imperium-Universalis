@@ -9,7 +9,7 @@ country_decisions = {
 			NOT = { has_country_flag = zhuxiatouxian_di }
 		}
 		allow = {
-		    num_of_cities = 20
+			num_of_cities = 20
 			total_development = 200
 			army_size = 40
 		}
@@ -21,7 +21,7 @@ country_decisions = {
 		}
 	}
 	
-    # 称帝
+	# 称帝
 	ChengDi1 ={
 		potential = {
 			has_global_flag = zhanguokaishi
@@ -33,17 +33,8 @@ country_decisions = {
 			NOT = { has_country_flag = zhuxiatouxian_di }
 		}
 		allow = {
-			custom_trigger_tooltip = {
-			tooltip = subject_all_chinese_religions
-			NOT = {
-					any_province = {
-						religion_group = chinese_religions
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
-					}
-				}
-			 }
-			 OR = {
-			    has_reform = ZhanGuo_WeiGuo_7
+			OR = {
+				has_reform = ZhanGuo_WeiGuo_7
 				has_reform = ZhanGuo_QinGuo_7
 				has_reform = ZhanGuo_QiGuo_7
 				has_reform = ZhanGuo_HanGuo_7
@@ -51,21 +42,23 @@ country_decisions = {
 				has_reform = ZhanGuo_YanGuo_7
 				has_reform = ZhanGuo_ZhaoGuo_7
 			}
+			custom_trigger_tooltip = {
+				tooltip = subject_all_chinese_religions
+				owns_all_provinces = {
+					religion_group = chinese_religions
+				}
+			}
 		}
 		effect = {
 			if = {
-			limit = {
-			tag = HNW
-			}
-			change_tag = ICH
-			swap_free_idea_group = yes
+				limit = { tag = HNW }
+				change_tag = ICH
+				swap_free_idea_group = yes
 			}
 			set_country_flag = zhuxiatouxian_di
 			set_emperor_of_china = ROOT
 			if = {
-			    limit = {
-				    government = republic
-				}
+				limit = { government = republic }
 				add_government_reform = heaven_republic_reform
 			}
 			else = { add_government_reform = celestial_empire }
@@ -80,26 +73,24 @@ country_decisions = {
 			NOT = { has_ruler_flag = call_help_for_wang_flag }
 		}
 		allow = {
-		    is_in_war = {
-					defender_leader = root
-			}
+			is_in_war = { defender_leader = root }
 			religion = chinese_religion
 			curia_treasury_size = 100
 		}
 		effect = {
 			every_known_country = {
-			    limit = {
-				   religion = chinese_religion
-				   NOT = { war_with = ZHO }
-				   is_subject = NO
-				   NOT = { tag = ZHO }
+				limit = {
+					religion = chinese_religion
+					NOT = { war_with = ZHO }
+					is_subject = NO
+					NOT = { tag = ZHO }
 				}
 				country_event = { id = ShiJian.22 }
 			}
-            add_curia_treasury = -100	
-            set_ruler_flag = call_help_for_wang_flag			
+			add_curia_treasury = -100
+			set_ruler_flag = call_help_for_wang_flag
 		}
-		ai_importance = 50	
+		ai_importance = 50
 		ai_will_do = {
 			factor = 1
 		}
@@ -112,9 +103,7 @@ country_decisions = {
 			is_part_of_hre = yes
 		}
 		allow = {
-			is_in_war = {
-				defender_leader = root
-			}
+			is_in_war = { defender_leader = root }
 			OR = {
 				hre_reform_passed = emperor_expand_gemeiner_pfennig
 				AND = {
@@ -126,7 +115,7 @@ country_decisions = {
 		}
 		effect = {
 			if = {
-			 limit = { hre_reform_passed = emperor_expand_gemeiner_pfennig }
+				limit = { hre_reform_passed = emperor_expand_gemeiner_pfennig }
 				every_known_country = {
 					limit = {
 						is_part_of_hre = yes
@@ -138,14 +127,12 @@ country_decisions = {
 				}
 			}
 			if = {
-			 limit = { hre_reform_passed = emperor_expand_gemeiner_pfennig }
-			 emperor = {
-				country_event = { id = ShiJian.23 }
-			 }
+				limit = { hre_reform_passed = emperor_expand_gemeiner_pfennig }
+				emperor = { country_event = { id = ShiJian.23 } }
 			}
-            set_ruler_flag = call_help_for_zhuhou_flag			
+			set_ruler_flag = call_help_for_zhuhou_flag
 		}
-		ai_importance = 50	
+		ai_importance = 50
 		ai_will_do = {
 			factor = 1
 		}
@@ -158,7 +145,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-		    OR = {
+			OR = {
 				AND = {
 					imperial_influence = 30
 					is_emperor = yes
@@ -202,7 +189,7 @@ country_decisions = {
 				}
 			}		
 		}
-		ai_importance = 50	
+		ai_importance = 50
 		ai_will_do = {
 			factor = 0
 			modifier = {
@@ -214,15 +201,13 @@ country_decisions = {
 	
 	back_to_liyue = {
 		potential = {
-			government = monarchy
 			culture_group = chinese_group
 			NOT = { religion_group = chinese_religions }
-			capital_scope = { 
-				continent = china
-			}
+			capital_scope = { continent = china }
+			government = monarchy
 		}
 		allow = {
-		    absolutism = 10
+			absolutism = 10
 			is_at_war = no
 			stability = 1
 			prestige = 20
@@ -251,6 +236,16 @@ country_decisions = {
 	
 	appeal_to_zhuxia = {
 		potential = {
+			OR = {
+				any_neighbor_country = { have_had_reform = chinese_feudalism_reform }
+				capital_scope = {
+					OR = {
+						superregion = china_superregion
+						superregion = korea_superregion
+					}
+				}
+				any_neighbor_country = { is_part_of_hre = yes }
+			}
 			any_known_country = {
 				is_part_of_hre = yes
 			}
@@ -260,6 +255,13 @@ country_decisions = {
 			is_at_war = no
 			OR = {
 				AND = {
+					has_reform = sinofication_government_2
+					has_reform = sinofication_culture_1
+				}
+				AND = {
+					any_neighbor_country = {
+						is_part_of_hre = yes
+					}
 					calc_true_if = {
 						all_country = {
 							is_part_of_hre = yes
@@ -267,26 +269,19 @@ country_decisions = {
 						}
 						amount = 5
 					}
-					any_neighbor_country = {
-						is_part_of_hre = yes
-					}
-				}
-				AND = {
-					has_reform = sinofication_government_2
-					has_reform = sinofication_culture_1
 				}
 			}
 			NOT = { is_crusade_target = yes }
 			NOT = { active_imperial_incident = any }
 			dip_power = 150
 		}
-		effect = {  
+		effect = {	
 			ROOT = {
 				save_global_event_target_as = appeal_to_zhuxia_s
 			}
 			emperor = {
 				set_imperial_incident = incident_barbrian_wants_to_join
-		    }
+			}
 			random_list = {
 				10 = { add_imperial_influence = 5 }
 				20 = { add_imperial_influence = 3 }
@@ -341,9 +336,9 @@ country_decisions = {
 			NOT = { active_imperial_incident = any }
 			dip_power = 100
 		}
-		effect = {  
+		effect = {	
 			set_ruler_flag = china_assemble_bazhu
-		    set_imperial_incident = incident_china_assemble_bazhu
+			set_imperial_incident = incident_china_assemble_bazhu
 			add_dip_power = -100
 		}
 		

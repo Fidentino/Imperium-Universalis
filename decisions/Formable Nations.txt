@@ -39,12 +39,30 @@ country_decisions = {
 		}
 		
 		allow = {
-			owns_all_provinces = { region = cyprus_region }
-			owns_all_provinces = { area = rhodiorum_area }
-			owns_all_provinces = { area = knossos_area }
-			owns_all_provinces = { area = hierapytna_area }
-			owns_all_provinces = { area = gortyn_area }
-			owns_all_provinces = { area = polyrrenia_area }
+			cyprus_region = {
+				type = all
+				owned_by = ROOT
+			}
+			rhodiorum_area = {
+				type = all
+				owned_by = ROOT
+			}
+			knossos_area = {
+				type = all
+				owned_by = ROOT
+			}
+			hierapytna_area = {
+				type = all
+				owned_by = ROOT
+			}
+			gortyn_area = {
+				type = all
+				owned_by = ROOT
+			}
+			polyrrenia_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		
 		effect = {
@@ -1304,8 +1322,8 @@ country_decisions = {
 		allow = {
 			is_subject = no
 			any_known_country = {
-				culture_group = chinese_group
 				neither_tribal_nor_native_trigger = yes
+				culture_group = chinese_group
 				OR = {
 					alliance_with = ROOT
 					marriage_with = ROOT
@@ -2845,8 +2863,14 @@ country_decisions = {
 		}
 		allow = {
 			is_subject = no
-			owns_all_provinces = { area = cantabria_area }
-			owns_all_provinces = { area = cantabria_sea_area }
+			cantabria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			cantabria_sea_area = {
+				type = all
+				owned_by = ROOT
+			}
 		}
 		effect = {
 			change_tag = CBQ
