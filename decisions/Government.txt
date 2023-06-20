@@ -55,27 +55,27 @@ country_decisions = {
 		}
 	}
 	#verbot von schuldsklaverei
-	ban_debt_slavery = {
-		potential = {
-			NOT = { has_country_modifier = slavery_abolished }
-			NOT = { has_country_modifier = debt_bondage_banned }
-			is_tribal = no
-		}
-		allow = {
-			adm_power = 30
-			adm_tech = 16
-		}
-		effect = {
-			add_adm_power = -30
-			add_country_modifier = {
-					name = debt_bondage_banned
-					duration = -1
-				}	
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	#ban_debt_slavery = {
+	#	potential = {
+	#		NOT = { has_country_modifier = slavery_abolished }
+	#		NOT = { has_country_modifier = debt_bondage_banned }
+	#		is_tribal = no
+	#	}
+	#	allow = {
+	#		adm_power = 30
+	#		adm_tech = 16
+	#	}
+	#	effect = {
+	#		add_adm_power = -30
+	#		add_country_modifier = {
+	#				name = debt_bondage_banned
+	#				duration = -1
+	#			}	
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
 	
 	heir_as_coruler = {
 		potential = {
@@ -400,31 +400,34 @@ country_decisions = {
 		allow = {
 		    is_at_war = no
 			NOT = { corruption = 20 }
-			absolutism = 20
 		}
 		effect = {
-		    add_stability = -2
-			add_absolutism = -15
-			add_legitimacy = -20
+		    add_stability = -1
+			add_absolutism = -10
+			add_legitimacy = -10
 			add_republican_tradition = -15
 			add_devotion = -15
-			add_meritocracy = -10
+			add_meritocracy = -15
 			
 		    change_estate_land_share = {
                 estate = estate_nobility
-                share = -5
+                share = -10
 			}
 			change_estate_land_share = {
                 estate = estate_priesthood
-                share = -5
+                share = -10
 			}
 			change_estate_land_share = {
                 estate = estate_merchants
-                share = -5
+                share = -10
 			}
 			change_estate_land_share = {
                 estate = estate_clans
-                share = -5
+                share = -20
+			}
+			change_estate_land_share = {
+			    estate = estate_slaves
+				share = -100
 			}
 		}
 		ai_will_do = {
