@@ -1321,9 +1321,13 @@ country_decisions = {
 		}
 		allow = {
 			is_subject = no
+			OR = {
+				has_institution = cast_iron_institution
+				adm_tech = 15
+				dip_tech = 15
+			}
+			is_at_war = no
 			any_known_country = {
-				neither_tribal_nor_native_trigger = yes
-				culture_group = chinese_group
 				OR = {
 					alliance_with = ROOT
 					marriage_with = ROOT
@@ -1332,17 +1336,13 @@ country_decisions = {
 						value = 100
 					}
 				}
+				culture_group = chinese_group
+				neither_tribal_nor_native_trigger = yes
 			}
 			any_known_country = {
 				culture_group = korean_group
 				total_development = 150
 			}
-			OR = {
-				has_institution = cast_iron_institution
-				adm_tech = 15
-				dip_tech = 15
-			}
-			is_at_war =  no
 			OR = {
 				AND = {
 					calc_true_if = {
