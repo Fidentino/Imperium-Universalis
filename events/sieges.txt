@@ -19,10 +19,8 @@ country_event = {		# Activated by the on-action. FROM = province, ROOT = attacke
 			development = 3		# for unrestricted, at least dev 3
 			NOT = { SD_trigger_recently_attacked = yes }
 			NOT = { owned_by = ROOT }		# Avoids sacking previously occupied owned provinces
-			OR = {
-				owner = { is_in_war = { attackers = ROOT } }	# checks the owner is at war with the besieger. 
-				owner = { is_in_war = { defenders = ROOT } }	# this way it only works for wars, not for rebels
-			}
+			NOT = { controlled_by = owner }	# checks the owner is at war with the besieger. 
+			NOT = { controlled_by = REB }	# this way it only works for wars, not for rebels
 		}
 		# Siege rules
 		OR = {
@@ -432,10 +430,8 @@ country_event = {			# Simplified event, when under X value. By on-action. FROM =
 			development = 3		# limited for btw 3 and X (6, 8, 10, etc)
 			NOT = { SD_trigger_recently_attacked = yes }
 			NOT = { owned_by = ROOT }		# Avoids sacking previously occupied owned provinces
-			OR = {
-				owner = { is_in_war = { attackers = ROOT } }	# checks the owner is at war with the besieger. 
-				owner = { is_in_war = { defenders = ROOT } }	# this way it only works for wars, not for rebels
-			}
+			NOT = { controlled_by = owner }	# checks the owner is at war with the besieger. 
+			NOT = { controlled_by = REB }	# this way it only works for wars, not for rebels
 		}
 		OR = {
 			AND = { has_global_flag = siege_cities_15 	FROM = { NOT = { development = 15 } } }
