@@ -85,7 +85,7 @@ awsan_religion_rebels = {
 			NOT = { religion = awsan_religion }
 			any_neighbor_province = {
 	 			religion = awsan_religion
-	 			NOT = { has_province_modifier = "forced_conversion" }
+	 			NOT = { has_province_modifier = forced_conversion }
 	 		}
 	 	}
 		modifier = {
@@ -122,7 +122,7 @@ awsan_religion_rebels = {
 					}
 				}
 				add_province_modifier = {
-					name = "religious_violence"
+					name = religious_violence
 					duration = 730
 				}
 			}
@@ -134,7 +134,7 @@ awsan_religion_rebels = {
 				}
 				change_religion = awsan_religion
 				add_province_modifier = {
-					name = "forced_conversion"
+					name = forced_conversion
 					duration = 730
 				}
 			}
@@ -183,7 +183,7 @@ awsan_religion_rebels = {
 				religion = awsan_religion
 			}
 			add_country_modifier = {
-				name = "religious_intolerance_enforced"
+				name = religious_intolerance_enforced
 				duration = 3650
 			}
 		}
@@ -203,7 +203,7 @@ awsan_religion_rebels = {
 				NOT = { has_country_modifier = heretic_tolerance }
 			}
 			add_country_modifier = {
-				name = "heretic_tolerance"
+				name = heretic_tolerance
 				duration = 3650
 			}
 			add_stability = -1
