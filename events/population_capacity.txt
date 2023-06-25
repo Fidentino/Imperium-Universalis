@@ -209,8 +209,8 @@ province_event = {
 		# RURAL CAPACITY, those living off the land. Will be assigned mostly to tribal pops, but also commoners. 10% to upper pops. 
 		######################
 		
-		# HARD BASE, province size. Basically the natural limit to sustain people in this province
-		set_variable = { which = rural_capacity which = prov_size }		# size into population
+		# HARD BASE, derived from province size (the natural limit to sustain people in this province), calculated at startup
+		set_variable = { which = rural_capacity which = base_rurcap }		# size into population
 		
 		# Rural population tend to the land in almost subsistence matter, with little to export. They are very affected by terrain type, winters (what food to grow) and weather. Terrain can be improved through buildings (rural infrastructure), winter can be mitigated somewhat (better seeds, animal husbandry, better plowing techniques -> institutions); but weather (arid and monsoons) can't be changed. 
 		
@@ -220,16 +220,6 @@ province_event = {
 			mild_winter = { 	PG_winter_rurcap = { tier3 = 1.00 tier2 = 1.00 tier1 = 0.80 } }	# tiers 1-2-3 are institutions
 			normal_winter = { 	PG_winter_rurcap = { tier3 = 1.00 tier2 = 0.80 tier1 = 0.50 } }
 			severe_winter = { 	PG_winter_rurcap = { tier3 = 0.80 tier2 = 0.50 tier1 = 0.35 } } # severe = normal, if no tech
-		}
-		if = { limit = { has_climate = arid } 		multiply_variable = { rural_capacity = 0.8 } }
-		if = { limit = { has_climate = tropical } 	multiply_variable = { rural_capacity = 0.8 } }
-		# Monsoons: reduces total capacity (less places to securely farm, due to flooding), but extra growth (more humidity). 
-		
-		trigger_switch = {
-			on_trigger = province_group
-			pg_monsoon_mild_group = { 	multiply_variable = { rural_capacity = 0.80 } }	# but +10% growth
-			pg_monsoon_normal_group = { multiply_variable = { rural_capacity = 0.65 } }	# 15% growth
-			pg_monsoon_severe_group = { multiply_variable = { rural_capacity = 0.50 } }	# 20% growth
 		}
 		
 		## Terrains
@@ -315,23 +305,7 @@ province_event = {
 		else_if = { limit = { has_province_modifier = land_reclamation_1 } change_variable = { rural_capacity = 1.00 } }
 		
 		# 5. FISHING BLOCK - depending on province size (and coastal), and coastal buildings
-		if = {
-			limit = { has_port = yes check_variable = { prov_size = 7 } } 
-			set_variable = { which = PG_fishercap value = 2.5 } 
-		}
-		else_if = {
-			limit = { has_port = yes check_variable = { prov_size = 4 } } 
-			set_variable = { which = PG_fishercap value = 1.5 } 
-		}
-		else_if = {
-			limit = { has_port = yes check_variable = { prov_size = 1 } } 
-			set_variable = { which = PG_fishercap value = 0.5 } 
-		}
-		if = {
-			limit = { OR = { has_terrain = coastline has_terrain = naxos_t 
-				has_terrain = steep_coast has_terrain = patara_t has_terrain = coastal_desert } } 
-			change_variable = { PG_fishercap = 1.0 }
-		}
+		set_variable = { which = PG_fishercap which = PG_base_fishercap }
 		trigger_switch = {
 			on_trigger = has_building
 			harbor_district = { change_variable = { PG_fishercap = 1.25 } multiply_variable = { PG_fishercap = 1.15 } }

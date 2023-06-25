@@ -76,10 +76,7 @@ country_event = {
 					share = 20
 				}
 			}
-		}
-		
-		# Slavery
-		every_country = {
+			# Slavery
 			export_to_variable = { which = slaves value = total_development }
 			# effect of total development: 30% to 10% total value
 			trigger_switch = {
@@ -8329,6 +8326,37 @@ country_event = {
 				export_to_variable = { which = PS_upp_init value = base_tax }
 				export_to_variable = { which = PS_tot_init value = development }
 				export_to_variable = { which = PS_year_init value = trigger_value:is_year }	# all used for statistics tracking
+				
+				# Population capacity
+				set_variable = { which = base_rurcap which = prov_size }
+				if = { limit = { has_climate = arid } 		multiply_variable = { base_rurcap = 0.8 } }
+				if = { limit = { has_climate = tropical } 	multiply_variable = { base_rurcap = 0.8 } }
+				# Monsoons: reduces total capacity (less places to securely farm, due to flooding), but extra growth (more humidity). 
+				
+				trigger_switch = {
+					on_trigger = province_group
+					pg_monsoon_mild_group = { 	multiply_variable = { base_rurcap = 0.80 } }	# but +10% growth
+					pg_monsoon_normal_group = { multiply_variable = { base_rurcap = 0.65 } }	# 15% growth
+					pg_monsoon_severe_group = { multiply_variable = { base_rurcap = 0.50 } }	# 20% growth
+				}
+				
+				if = {
+					limit = { has_port = yes check_variable = { prov_size = 7 } } 
+					set_variable = { which = PG_base_fishercap value = 2.5 } 
+				}
+				else_if = {
+					limit = { has_port = yes check_variable = { prov_size = 4 } } 
+					set_variable = { which = PG_base_fishercap value = 1.5 } 
+				}
+				else_if = {
+					limit = { has_port = yes check_variable = { prov_size = 1 } } 
+					set_variable = { which = PG_base_fishercap value = 0.5 } 
+				}
+				if = {
+					limit = { OR = { has_terrain = coastline has_terrain = naxos_t 
+						has_terrain = steep_coast has_terrain = patara_t has_terrain = coastal_desert } } 
+					change_variable = { PG_base_fishercap = 1.0 }
+				}
 				
 				province_event = { id = population_capacity.4 }	# new version, v4.0
 				
