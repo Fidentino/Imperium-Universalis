@@ -1,34 +1,3 @@
-#Institution modifiers
-illiterate_country_modifier = {
-	potential = {
-		always = yes
-	}
-
-	trigger = {
-		NOT = { has_institution = writing_system }
-	}
-
-	max_absolutism = -5
-	global_institution_spread = -0.25
-	adm_tech_cost_modifier = 0.33
-	dip_tech_cost_modifier = 0.25
-	administrative_efficiency = -0.025
-}
-bronze_age_modifier = {
-	potential = {
-		always = yes
-	}
-
-	trigger = {
-		NOT = { has_institution = iron_age }
-	}
-
-	production_efficiency = -0.1
-	shock_damage = -0.1
-	shock_damage_received = 0.1
-	fire_damage = -0.05
-	fire_damage_received = 0.05
-}
 #Religion modifiers
 religion_syncretistic_modifier = {
 	potential = {
