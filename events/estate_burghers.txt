@@ -322,7 +322,7 @@ country_event = {
 					development = 5
 					province_has_center_of_trade_of_level = 1
 				}
-				has_river_estuary_trigger = yes
+				has_province_modifier = river_estuary_modifier # 'has_river_estuary_trigger = yes' in vanilla
 				is_city = yes
 			}
 		}
