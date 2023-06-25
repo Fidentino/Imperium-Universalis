@@ -585,7 +585,7 @@ conquest_missions = {
 				}
 				add_permanent_claim = ROOT
 			}
-			tagritis_area = {
+			macroremnus_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { owned_by = ROOT }
@@ -629,7 +629,7 @@ conquest_missions = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			tagritis_area = {
+			macroremnus_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
