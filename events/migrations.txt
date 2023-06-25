@@ -272,9 +272,9 @@ country_event = {		# 1st Country Event: tribal population want to leave. The cou
 				custom_tooltip = PG_MIGRATION_BASE
 				hidden_effect = {
 					# here goes the scripted effect with everything it means to migrate
-					if = { 		limit = { PREV { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
-					else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
-					else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
+					if = { 		limit = { PREV = { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
+					else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
+					else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
 					province_event = { id = population_capacity.4 }
 				}
 			}
@@ -305,9 +305,9 @@ country_event = {		# 1st Country Event: tribal population want to leave. The cou
 					}
 					hidden_effect = {
 						# here goes the scripted effect with everything it means to migrate
-						if = { 		limit = { PREV { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
+						if = { 		limit = { PREV = { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
 						province_event = { id = population_capacity.4 }
 					}
 				}
@@ -441,9 +441,9 @@ country_event = {		# 1st Country Event: tribal population want to leave. The cou
 					custom_tooltip = PG_MIGRATION_OWNREGION
 					hidden_effect = {
 						# here goes the scripted effect with everything it means to migrate
-						if = { 		limit = { PREV { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
+						if = { 		limit = { PREV = { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
 						mig_dist_cost = yes
 						province_event = { id = population_capacity.4 }
 					
@@ -468,9 +468,9 @@ country_event = {		# 1st Country Event: tribal population want to leave. The cou
 					custom_tooltip = PG_MIGRATION_ALTERNATIVE
 					hidden_effect = {
 						# here goes the scripted effect with everything it means to migrate
-						if = { 		limit = { PREV { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
+						if = { 		limit = { PREV = { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
 						province_event = { id = population_capacity.4 }
 					}
 				}
@@ -502,9 +502,9 @@ country_event = {		# 1st Country Event: tribal population want to leave. The cou
 					custom_tooltip = PG_MIGRATION_OTHERREGION
 					hidden_effect = {
 						# here goes the scripted effect with everything it means to migrate
-						if = { 		limit = { PREV { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
+						if = { 		limit = { PREV = { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
 						mig_dist_cost = yes
 						province_event = { id = population_capacity.4 }
 					
@@ -529,9 +529,9 @@ country_event = {		# 1st Country Event: tribal population want to leave. The cou
 					custom_tooltip = PG_MIGRATION_ALTERNATIVE
 					hidden_effect = {
 						# here goes the scripted effect with everything it means to migrate
-						if = { 		limit = { PREV { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
-						else_if = { limit = { PREV { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
+						if = { 		limit = { PREV = { check_variable = { PG_trb_migsize = 3 } } } PG_migrate_tribal_happy = { size = 3 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 2 } } } PG_migrate_tribal_happy = { size = 2 } }
+						else_if = { limit = { PREV = { check_variable = { PG_trb_migsize = 1 } } } PG_migrate_tribal_happy = { size = 1 } }
 						province_event = { id = population_capacity.4 }
 					}
 				}
