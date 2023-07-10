@@ -232,13 +232,13 @@ scaled_estate_land_share_reduce_effect = {
 			total_development = 50
 			NOT = { total_development = 100 }
 		}
-		give_estate_land_share_medium = { estate = $estate$ }
+		take_estate_land_share_medium = { estate = $estate$ }
 	}
 	else_if = {
 		limit = {
 			total_development = 100
 		}
-		give_estate_land_share_small = { estate = $estate$ }
+		take_estate_land_share_small = { estate = $estate$ }
 	}
 }
 
