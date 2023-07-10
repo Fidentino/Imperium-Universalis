@@ -466,12 +466,12 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {	
-			total_development = 600
-			OR = {
-				NOT = { war_score = -5 }
-				NOT = { manpower_percentage = 0.1 }
-			}
+	    total_development = 300
+		OR = {
+			is_at_war = no
+			NOT = { manpower_percentage = 0.3 }
 		}
+	}
 	
 	
 	mean_time_to_happen = {
@@ -526,7 +526,12 @@ country_event = {
 			AND = {
 				NOT = { has_dlc = "Common Sense" }
 				total_development = 1100
-				is_hegemon = yes
+				if = {
+				    limit = {
+					    has_dlc = "Emperor"
+					}
+					is_hegemon = yes
+				}
 				NOT = { government_rank = 5 }
 			}
 		}	
